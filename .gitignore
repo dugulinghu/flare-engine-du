@@ -60,3 +60,15 @@ a.out.wasm
 # visual studio and its cmake
 .vs/
 CMakeSettings.json
+*.tlog
+*.obj
+*.exe
+*.pdb
+*.vcxproj
+*.filters
+*.user
+*.recipe
+*.ilk
+*.log
+*.res
+*.sln
