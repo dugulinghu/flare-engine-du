@@ -769,7 +769,12 @@ void StatBlock::takeDamage(float dmg, bool crit, int source_type) {
 		// what about other things that happen in the "dead" entity states?
 
 		if (hero) {
-			cur_state = StatBlock::ENTITY_DEAD;
+			//注释掉原死亡模式，后面添加自己的无敌模式
+			//cur_state = StatBlock::ENTITY_DEAD;
+			
+			//du: 自己添加的无敌模式
+			hp = get(Stats::HP_MAX);
+			cur_state = StatBlock::ENTITY_HIT;
 		}
 		else {
 			// enemy died; do rewards
@@ -992,9 +997,11 @@ void StatBlock::logic() {
 
 	// MP regen
 	if (mp <= get(Stats::MP_MAX) && hp > 0) {
-		float mp_regen_per_frame = get(Stats::MP_REGEN) / 60.f / settings->max_frames_per_sec;
-		mp += mp_regen_per_frame;
-		mp = std::max(0.0f, std::min(mp, get(Stats::MP_MAX)));
+		//du: 添加能量无限模式
+		//float mp_regen_per_frame = get(Stats::MP_REGEN) / 60.f / settings->max_frames_per_sec;
+		//mp += mp_regen_per_frame;
+		//mp = std::max(0.0f, std::min(mp, get(Stats::MP_MAX)));
+		mp = get(Stats::MP_MAX);
 	}
 
 	// handle buff/debuff durations

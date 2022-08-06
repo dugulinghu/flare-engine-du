@@ -139,7 +139,8 @@ void Avatar::init() {
 	stats.hero = true;
 	stats.humanoid = true;
 	stats.level = 1;
-	stats.xp = 0;
+	//du: 初始化为19级
+	stats.xp = 67108608;
 	for (size_t i = 0; i < eset->primary_stats.list.size(); ++i) {
 		stats.primary[i] = stats.primary_starting[i] = 1;
 		stats.primary_additional[i] = 0;
